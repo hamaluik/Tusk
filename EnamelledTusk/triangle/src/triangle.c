@@ -5,6 +5,7 @@
 #include <math.h>
 #include <assert.h>
 #include <unistd.h>
+#include <sys/time.h>
 
 // BCM?
 #include "bcm_host.h"
@@ -100,7 +101,7 @@ static void initializeEGL(STATE_STRUCT *state) {
 	src_rect.x = 0;
 	src_rect.y = 0;
 	src_rect.width = state->screenWidth << 16;
-	src_rect.height = state->screenHeight << 16;        
+	src_rect.height = state->screenHeight << 16;		
 
 	dispman_display = vc_dispmanx_display_open( 0 /* LCD */);
 	dispman_update = vc_dispmanx_update_start( 0 );
@@ -266,6 +267,31 @@ int initializeShaders(STATE_STRUCT *state) {
 	return GL_TRUE;
 }
 
+// our draw function!
+void draw(STATE_STRUCT *state) {
+	// load up our vertices
+	GLfloat vertices[] = {
+		0.0f, 0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f};
+		
+	// set the viewport
+	glViewport(0, 0, state->screenWidth, state->screenHeight);
+	
+	// clear the color buffer
+	glClear(GL_COLOR_BUFFER_BIT);
+	
+	// use the program object
+	glUseProgram(state->programObject);
+	
+	// load the vertex data
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+	glEnableVertexAttribArray(0);
+	
+	// and draw with arrays!
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
 int main() {
 	// initialize bcm
 	printf("Initializing bcm...");
@@ -283,8 +309,38 @@ int main() {
 	initializeShaders(state);
 	printf(" done!");
 	
+	// timing information
+	struct timeval t1, t2;
+	struct timezone tz;
+	float deltatime;
+	float totaltime = 0.0f;
+	unsigned int frames = 0;
+	gettimeofday ( &t1 , &tz );
+
 	// our program loop
+	printf("Running main loop...\n");
 	while(1) {
+		// get timing information
+		gettimeofday(&t2, &tz);
+		deltatime = (float)(t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec) * 1e-6);
+		t1 = t2;
+
+		// TODO: implement update function
+		// draw!
+		draw(state);
+
+		// swap our buffers
+		eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
+
+		// update our time calculations
+		totaltime += deltatime;
+		frames++;
+		if (totaltime >  2.0f) {
+			// print and calculate FPS
+			printf("%4d frames rendered in %1.4f seconds -> FPS=%3.4f\n", frames, totaltime, frames/totaltime);
+			totaltime -= 2.0f;
+			frames = 0;
+		}
 	}
 	
 	// handle exiting
