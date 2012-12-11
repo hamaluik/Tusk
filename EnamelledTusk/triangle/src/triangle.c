@@ -330,7 +330,7 @@ int main() {
 		draw(state);
 
 		// swap our buffers
-		eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface);
+		eglSwapBuffers(state->display, state->surface);
 
 		// update our time calculations
 		totaltime += deltatime;

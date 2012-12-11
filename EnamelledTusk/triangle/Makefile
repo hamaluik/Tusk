@@ -13,7 +13,7 @@ o/triangle.o: src/triangle.c
 
 .PHONY: clean
 clean:
-	rm o/*.o bin/triangle
+	rm o/triangle.o bin/triangle
 
 .PHONE: run
 run:
