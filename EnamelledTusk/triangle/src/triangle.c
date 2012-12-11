@@ -70,18 +70,18 @@ static void initializeOpenGL(STATE_STRUCT *state) {
 	assert(state->context!=EGL_NO_CONTEXT);
 
 	// create an EGL window surface
-	int32_t success = graphics_get_display_size(0 /* LCD */, &state->screen_width, &state->screen_height);
+	int32_t success = graphics_get_display_size(0 /* LCD */, &state->screenWidth, &state->screenHeight);
 	assert(success >= 0);
 
 	dst_rect.x = 0;
 	dst_rect.y = 0;
-	dst_rect.width = state->screen_width;
-	dst_rect.height = state->screen_height;
+	dst_rect.width = state->screenWidth;
+	dst_rect.height = state->screenHeight;
 
 	src_rect.x = 0;
 	src_rect.y = 0;
-	src_rect.width = state->screen_width << 16;
-	src_rect.height = state->screen_height << 16;        
+	src_rect.width = state->screenWidth << 16;
+	src_rect.height = state->screenHeight << 16;        
 
 	dispman_display = vc_dispmanx_display_open( 0 /* LCD */);
 	dispman_update = vc_dispmanx_update_start( 0 );
@@ -91,8 +91,8 @@ static void initializeOpenGL(STATE_STRUCT *state) {
 	&src_rect, DISPMANX_PROTECTION_NONE, 0 /*alpha*/, 0/*clamp*/, 0/*transform*/);
 
 	nativewindow.element = dispman_element;
-	nativewindow.width = state->screen_width;
-	nativewindow.height = state->screen_height;
+	nativewindow.width = state->screenWidth;
+	nativewindow.height = state->screenHeight;
 	vc_dispmanx_update_submit_sync(dispman_update);
 
 	state->surface = eglCreateWindowSurface(state->display, config, &nativewindow, NULL);
