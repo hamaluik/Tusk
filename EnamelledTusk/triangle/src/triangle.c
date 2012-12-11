@@ -204,8 +204,8 @@ int initializeShaders(STATE_STRUCT *state) {
 		"attribute vec4 aVertexColour;\n"
 		"varying vec4 vVertexColour;\n"
 		"void main() {\n"
-		"	gl_Position = vertexPosition;\n"
 		"	vVertexColour = aVertexColour;\n"
+		"	gl_Position = aVertexPosition;\n"
 		"}\n";
 	char fragmentShaderSrc[] =
 		"precision lowp float;\n"
