@@ -109,7 +109,7 @@ static void initializeEGL(STATE_STRUCT *state) {
 	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 	glClear( GL_COLOR_BUFFER_BIT );
 	glClear( GL_DEPTH_BUFFER_BIT );
-	glShadeModel(GL_FLAT);
+	//glShadeModel(GL_FLAT);
 
 	// Enable back face culling.
 	glEnable(GL_CULL_FACE);
@@ -162,7 +162,7 @@ GLuint loadShader(GLenum type, const char *shaderSrc) {
 			char *infoLog = malloc(sizeof(char) * infoLength);
 			
 			// load up the log
-			glGetshaderInfoLog(shader, infoLength, NULL, infoLog);
+			glGetShaderInfoLog(shader, infoLength, NULL, infoLog);
 			printf("Error compiling shader:\n%s\n", infoLog);
 			
 			// free up our memory
