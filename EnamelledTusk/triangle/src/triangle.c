@@ -16,13 +16,14 @@
 
 // define our state container
 typedef struct {
-// Screen objects
+	// Screen objects
 	uint32_t screenWidth;
 	uint32_t screenHeight;
-// OpenGL|ES objects
-   EGLDisplay display;
-   EGLSurface surface;
-   EGLContext context;
+	
+	// OpenGL|ES objects
+	EGLDisplay display;
+	EGLSurface surface;
+	EGLContext context;
 } STATE_STRUCT;
 
 // and create our state and a pointer to it
