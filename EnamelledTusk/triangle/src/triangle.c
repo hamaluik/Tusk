@@ -345,7 +345,7 @@ int main() {
 		frames++;
 		if (totaltime >  2.0f) {
 			// print and calculate FPS
-			printf("\r%4d frames rendered in %1.4f seconds -> FPS=%3.4f\n", frames, totaltime, frames/totaltime);
+			printf("\r%4d frames rendered in %1.4f seconds -> FPS=%3.4f", frames, totaltime, frames/totaltime);
 			totaltime -= 2.0f;
 			frames = 0;
 		}
