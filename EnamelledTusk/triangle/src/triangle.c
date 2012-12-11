@@ -138,7 +138,7 @@ int main() {
 	initializeOpenGL(state);
 	
 	// our program loop
-	while(!terminate) {
+	while(1) {
 	}
 	
 	// handle exiting
