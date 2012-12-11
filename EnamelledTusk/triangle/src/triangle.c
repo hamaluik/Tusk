@@ -199,14 +199,19 @@ GLuint loadShader(GLenum type, const char *shaderSrc) {
 int initializeShaders(STATE_STRUCT *state) {
 	// create our shader sources inline here
 	char vertexShaderSrc[] =
-		"attribute vec4 vertexPosition;\n"
+		"precision lowp float;\n"
+		"attribute vec4 aVertexPosition;\n"
+		"attribute vec4 aVertexColour;\n"
+		"varying vec4 vVertexColour;\n"
 		"void main() {\n"
 		"	gl_Position = vertexPosition;\n"
+		"	vVertexColour = aVertexColour;\n"
 		"}\n";
 	char fragmentShaderSrc[] =
-		"precision mediump float;\n"
+		"precision lowp float;\n"
+		"varying vec4 vVertexColour;\n"
 		"void main() {\n"
-		"	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
+		"	gl_FragColor = vVertexColour;\n"
 		"}\n";
 		
 	// load our vertex and fragment shaders
@@ -224,9 +229,8 @@ int initializeShaders(STATE_STRUCT *state) {
 	glAttachShader(programObject, fragmentShader);
 	
 	// bind our vertex shader attributes
-	// (we only have the vertex position here)
-	// (bind it to location 0)
-	glBindAttribLocation(programObject, 0, "vertexPosition");
+	glBindAttribLocation(programObject, 0, "aVertexPosition");
+	glBindAttribLocation(programObject, 1, "aVertexColour");
 	
 	// link the program up
 	glLinkProgram(programObject);
@@ -271,9 +275,9 @@ int initializeShaders(STATE_STRUCT *state) {
 void draw(STATE_STRUCT *state) {
 	// load up our vertices
 	GLfloat vertices[] = {
-		0.0f, 0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f};
+		0.0f, 0.5f, 0.0f,   1.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f, 1.0f,
+		0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f, 1.0f};
 		
 	// set the viewport
 	glViewport(0, 0, state->screenWidth, state->screenHeight);
@@ -285,8 +289,12 @@ void draw(STATE_STRUCT *state) {
 	glUseProgram(state->programObject);
 	
 	// load the vertex data
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), vertices);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(float), vertices + 3);
+	
+	// and enable our attribute arrays
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 	
 	// and draw with arrays!
 	glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -296,7 +304,7 @@ int main() {
 	// initialize bcm
 	printf("Initializing bcm...");
 	bcm_host_init();
-	printf(" done!");
+	printf(" done!\n");
 	
 	// clear the application state
 	memset(state, 0, sizeof(*state));
@@ -304,10 +312,10 @@ int main() {
 	// initialize things
 	printf("Initializing EGL...");
 	initializeEGL(state);
-	printf(" done!");
+	printf(" done!\n");
 	printf("Initializing shaders...");
 	initializeShaders(state);
-	printf(" done!");
+	printf(" done!\n");
 	
 	// timing information
 	struct timeval t1, t2;
