@@ -10,3 +10,11 @@ bin/triangle: o/triangle.o
 
 o/triangle.o: src/triangle.c
 	$(CC) $(CFLAGS) $(INCLUDES) -g -c src/triangle.c -o o/triangle.o -Wno-deprecated-declarations
+
+.PHONY: clean
+clean:
+	rm o/*.o bin/triangle.bin
+
+.PHONE: run
+run:
+	./bin/triangle
