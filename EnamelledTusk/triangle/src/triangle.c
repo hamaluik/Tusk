@@ -10,7 +10,7 @@
 #include "bcm_host.h"
 
 // GLES and EGL
-#include "GLES/gl.h"
+#include "GLES2/gl2.h"
 #include "EGL/egl.h"
 #include "EGL/eglext.h"
 
@@ -141,7 +141,7 @@ GLuint loadShader(GLenum type, const char *shaderSrc) {
 	}
 	
 	// load the shader source
-	glShaderSource(shader, 1, &sgaderSrc, NULL);
+	glShaderSource(shader, 1, &shaderSrc, NULL);
 	
 	// compile the shader
 	glCompileShader(shader);
@@ -157,7 +157,7 @@ GLuint loadShader(GLenum type, const char *shaderSrc) {
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLength);
 		
 		// print out the info log
-		if(infoLen > 1) {
+		if(infoLength > 1) {
 			// allocate memory
 			char *infoLog = malloc(sizeof(char) * infoLength);
 			
@@ -180,12 +180,12 @@ GLuint loadShader(GLenum type, const char *shaderSrc) {
 
 int initializeShaders(STATE_STRUCT *state) {
 	// create our shader sources inline here
-	GLbyte vertexShaderSrc[] =
+	char vertexShaderSrc[] =
 		"attribute vec4 vertexPosition;\n"
 		"void main() {\n"
 		"	gl_Position = vertexPosition;\n"
 		"}\n";
-	GLbyte fragmentShaderSrc[] =
+	char fragmentShaderSrc[] =
 		"precision mediump float;\n"
 		"void main() {\n"
 		"	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
@@ -233,7 +233,7 @@ int initializeShaders(STATE_STRUCT *state) {
 			printf("Error linking program:\n%s\n", infoLog);
 			
 			// and free our log memory
-			free(infolog);
+			free(infoLog);
 		}
 		
 		// clean up
