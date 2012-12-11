@@ -24,13 +24,16 @@ typedef struct {
 	EGLDisplay display;
 	EGLSurface surface;
 	EGLContext context;
+	
+	// Shader programs
+	GLuint programObject;
 } STATE_STRUCT;
 
 // and create our state and a pointer to it
 static STATE_STRUCT _state, *state = &_state;
 
 // our initialization function
-static void initializeOpenGL(STATE_STRUCT *state) {
+static void initializeEGL(STATE_STRUCT *state) {
 	EGLBoolean result;
 	EGLint num_config;
 
@@ -127,6 +130,125 @@ static void onExit() {
 	printf("Exiting...\n");
 }
 
+// create a shader object, load it's source, and compile the shader
+GLuint loadShader(GLenum type, const char *shaderSrc) {
+	// create the shader object
+	GLuint shader = glCreateShader(type);
+	
+	// make sure it's valid
+	if(shader == 0) {
+		return 0;
+	}
+	
+	// load the shader source
+	glShaderSource(shader, 1, &sgaderSrc, NULL);
+	
+	// compile the shader
+	glCompileShader(shader);
+	
+	// check the compile status
+	GLint compiled;
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+	
+	// check for compilation errors
+	if(!compiled) {
+		// store how long our info string is
+		GLint infoLength = 0;
+		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLength);
+		
+		// print out the info log
+		if(infoLen > 1) {
+			// allocate memory
+			char *infoLog = malloc(sizeof(char) * infoLength);
+			
+			// load up the log
+			glGetshaderInfoLog(shader, infoLength, NULL, infoLog);
+			printf("Error compiling shader:\n%s\n", infoLog);
+			
+			// free up our memory
+			free(infoLog);
+		}
+		
+		// clean up
+		glDeleteShader(shader);
+		return 0;
+	}
+	
+	// return our compiled shader!
+	return shader;
+}
+
+int initializeShaders(STATE_STRUCT *state) {
+	// create our shader sources inline here
+	GLbyte vertexShaderSrc[] =
+		"attribute vec4 vertexPosition;\n"
+		"void main() {\n"
+		"	gl_Position = vertexPosition;\n"
+		"}\n";
+	GLbyte fragmentShaderSrc[] =
+		"precision mediump float;\n"
+		"void main() {\n"
+		"	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
+		"}\n";
+		
+	// load our vertex and fragment shaders
+	GLuint vertexShader = loadShader(GL_VERTEX_SHADER, vertexShaderSrc);
+	GLuint fragmentShader = loadShader(GL_FRAGMENT_SHADER, fragmentShaderSrc);
+	
+	// create a program object to link the two together with
+	GLuint programObject = glCreateProgram();
+	if(programObject == 0) {
+		return 0;
+	}
+	
+	// attach our two shaders to the program
+	glAttachShader(programObject, vertexShader);
+	glAttachShader(programObject, fragmentShader);
+	
+	// bind our vertex shader attributes
+	// (we only have the vertex position here)
+	// (bind it to location 0)
+	glBindAttribLocation(programObject, 0, "vertexPosition");
+	
+	// link the program up
+	glLinkProgram(programObject);
+	
+	// and check the link status to make sure it linked ok
+	GLint linked;
+	glGetProgramiv(programObject, GL_LINK_STATUS, &linked);
+	
+	// check for linker errors
+	if(!linked) {
+		// get the size of our info buffer
+		GLint infoLength = 0;
+		glGetProgramiv(programObject, GL_INFO_LOG_LENGTH, &infoLength);
+		
+		// print out the info message
+		if(infoLength > 1) {
+			// allocate memory for it
+			char *infoLog = malloc(sizeof(char) * infoLength);
+			
+			// actually get the log
+			glGetProgramInfoLog(programObject, infoLength, NULL, infoLog);
+			printf("Error linking program:\n%s\n", infoLog);
+			
+			// and free our log memory
+			free(infolog);
+		}
+		
+		// clean up
+		glDeleteProgram(programObject);
+		return GL_FALSE;
+	}
+	
+	// now store our program object
+	state->programObject = programObject;
+	
+	// and set our clear colour
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	return GL_TRUE;
+}
+
 int main() {
 	// initialize bcm
 	bcm_host_init();
@@ -134,8 +256,9 @@ int main() {
 	// clear the application state
 	memset(state, 0, sizeof(*state));
 	
-	// start OpenGL ES (OGLES)
-	initializeOpenGL(state);
+	// initialize things
+	initializeEGL(state);
+	initializeShaders(state);
 	
 	// our program loop
 	while(1) {
