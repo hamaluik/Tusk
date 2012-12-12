@@ -1,0 +1,701 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 28.57      0.04     0.04      256     0.16     0.20  unfilterScanline(unsigned char*, unsigned char const*, unsigned char const*, unsigned int, unsigned char, unsigned int)
+ 21.43      0.07     0.03        2    15.00    25.00  inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int)
+ 14.29      0.09     0.02    14973     0.00     0.00  huffmanDecodeSymbol(unsigned char const*, unsigned int*, HuffmanTree const*, unsigned int)
+ 14.29      0.11     0.02        1    20.00    20.00  update_adler32(unsigned int, unsigned char const*, unsigned int)
+  7.14      0.12     0.01    87720     0.00     0.00  paethPredictor(short, short, short)
+  7.14      0.13     0.01        1    10.00    10.00  ucvector_resizev(ucvector*, unsigned int, unsigned char)
+  7.14      0.14     0.01                             main
+  0.00      0.14     0.00     8967     0.00     0.00  readBitsFromStream(unsigned int*, unsigned char const*, unsigned int)
+  0.00      0.14     0.00      607     0.00     0.00  OGLManager::getProgram()
+  0.00      0.14     0.00      604     0.00     0.00  EGLManager::swapBuffers()
+  0.00      0.14     0.00      604     0.00     0.00  EGLManager::getScreenWidth()
+  0.00      0.14     0.00      604     0.00     0.00  EGLManager::getScreenHeight()
+  0.00      0.14     0.00      603     0.00     0.00  std::sin(float)
+  0.00      0.14     0.00       51     0.00     0.00  myfree(void*)
+  0.00      0.14     0.00       33     0.00     0.00  lodepng_chunk_type_equals(unsigned char const*, char const*)
+  0.00      0.14     0.00       21     0.00     0.00  mymalloc(unsigned int)
+  0.00      0.14     0.00       15     0.00     0.00  lodepng_read32bitInt(unsigned char const*)
+  0.00      0.14     0.00       14     0.00     0.00  myrealloc(void*, unsigned int)
+  0.00      0.14     0.00       10     0.00     0.00  lodepng_chunk_length(unsigned char const*)
+  0.00      0.14     0.00       10     0.00     0.00  uivector_init(uivector*)
+  0.00      0.14     0.00       10     0.00     0.00  uivector_resize(uivector*, unsigned int)
+  0.00      0.14     0.00       10     0.00     0.00  uivector_cleanup(void*)
+  0.00      0.14     0.00       10     0.00     0.00  uivector_resizev(uivector*, unsigned int, unsigned int)
+  0.00      0.14     0.00        6     0.00     0.00  readBitFromStream(unsigned int*, unsigned char const*)
+  0.00      0.14     0.00        5     0.00     0.00  lodepng_chunk_data_const(unsigned char const*)
+  0.00      0.14     0.00        5     0.00     0.00  ucvector_resize(ucvector*, unsigned int)
+  0.00      0.14     0.00        5     0.00     0.00  HuffmanTree_init(HuffmanTree*)
+  0.00      0.14     0.00        5     0.00     0.00  HuffmanTree_cleanup(HuffmanTree*)
+  0.00      0.14     0.00        5     0.00     0.00  HuffmanTree_make2DTree(HuffmanTree*)
+  0.00      0.14     0.00        5     0.00     0.00  HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int)
+  0.00      0.14     0.00        5     0.00     0.00  HuffmanTree_makeFromLengths2(HuffmanTree*)
+  0.00      0.14     0.00        4     0.00     0.00  lodepng_chunk_next_const(unsigned char const*)
+  0.00      0.14     0.00        3     0.00     0.00  lodepng_get_bpp(LodePNGColorMode const*)
+  0.00      0.14     0.00        3     0.00     0.00  lodepng_palette_clear(LodePNGColorMode*)
+  0.00      0.14     0.00        3     0.00     0.00  lodepng_color_mode_init(LodePNGColorMode*)
+  0.00      0.14     0.00        3     0.00     0.00  lodepng_color_mode_cleanup(LodePNGColorMode*)
+  0.00      0.14     0.00        3     0.00     0.00  ucvector_init(ucvector*)
+  0.00      0.14     0.00        3     0.00     0.00  getNumColorChannels(LodePNGColorType)
+  0.00      0.14     0.00        3     0.00     0.00  lodepng_get_bpp_lct(LodePNGColorType, unsigned int)
+  0.00      0.14     0.00        2     0.00     0.00  lodepng_crc32(unsigned char const*, unsigned int)
+  0.00      0.14     0.00        2     0.00     0.00  lodepng_info_init(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  lodepng_get_raw_size(unsigned int, unsigned int, LodePNGColorMode const*)
+  0.00      0.14     0.00        2     0.00     0.00  lodepng_info_cleanup(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  lodepng_chunk_ancillary(unsigned char const*)
+  0.00      0.14     0.00        2     0.00     0.00  Crc32_update_crc(unsigned char const*, unsigned int, unsigned int)
+  0.00      0.14     0.00        2     0.00     0.00  LodePNGText_init(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  ucvector_cleanup(void*)
+  0.00      0.14     0.00        2     0.00     0.00  LodePNGIText_init(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  LodePNGText_cleanup(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  LodePNGIText_cleanup(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  LodePNGUnknownChunks_init(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  LodePNGUnknownChunks_cleanup(LodePNGInfo*)
+  0.00      0.14     0.00        2     0.00     0.00  OGLManager::compileShader(unsigned int, char const*)
+  0.00      0.14     0.00        1     0.00   130.00  lodepng_decode(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int)
+  0.00      0.14     0.00        1     0.00    50.00  lodepng_inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_load_file(unsigned char**, unsigned int*, char const*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_state_init(LodePNGState*)
+  0.00      0.14     0.00        1     0.00   130.00  lodepng_decode_file(unsigned char**, unsigned int*, unsigned int*, char const*, LodePNGColorType, unsigned int)
+  0.00      0.14     0.00        1     0.00   130.00  lodepng_decode32_file(unsigned char**, unsigned int*, unsigned int*, char const*)
+  0.00      0.14     0.00        1     0.00   130.00  lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_state_cleanup(LodePNGState*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_chunk_check_crc(unsigned char const*)
+  0.00      0.14     0.00        1     0.00    70.00  lodepng_zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_decoder_settings_init(LodePNGDecoderSettings*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_encoder_settings_init(LodePNGEncoderSettings*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_compress_settings_init(LodePNGCompressSettings*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_decompress_settings_init(LodePNGDecompressSettings*)
+  0.00      0.14     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.14     0.00        1     0.00   130.00  decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int)
+  0.00      0.14     0.00        1     0.00     0.00  readChunk_pHYs(LodePNGInfo*, unsigned char const*, unsigned int)
+  0.00      0.14     0.00        1     0.00    70.00  zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*)
+  0.00      0.14     0.00        1     0.00    50.00  lodepng_inflatev(ucvector*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*)
+  0.00      0.14     0.00        1     0.00     0.00  checkColorValidity(LodePNGColorType, unsigned int)
+  0.00      0.14     0.00        1     0.00     0.00  getTreeInflateFixed(HuffmanTree*, HuffmanTree*)
+  0.00      0.14     0.00        1     0.00     0.00  Crc32_make_crc_table()
+  0.00      0.14     0.00        1     0.00    50.00  postProcessScanlines(unsigned char*, unsigned char*, unsigned int, unsigned int, LodePNGInfo const*)
+  0.00      0.14     0.00        1     0.00     0.00  ucvector_init_buffer(ucvector*, unsigned char*, unsigned int)
+  0.00      0.14     0.00        1     0.00     0.41  getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int)
+  0.00      0.14     0.00        1     0.00     0.00  generateFixedLitLenTree(HuffmanTree*)
+  0.00      0.14     0.00        1     0.00     0.00  lodepng_color_mode_equal(LodePNGColorMode const*, LodePNGColorMode const*)
+  0.00      0.14     0.00        1     0.00     0.00  generateFixedDistanceTree(HuffmanTree*)
+  0.00      0.14     0.00        1     0.00    20.00  adler32(unsigned char const*, unsigned int)
+  0.00      0.14     0.00        1     0.00    50.00  inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*)
+  0.00      0.14     0.00        1     0.00    50.00  unfilter(unsigned char*, unsigned char const*, unsigned int, unsigned int, unsigned int)
+  0.00      0.14     0.00        1     0.00     0.00  EGLManager::initialize()
+  0.00      0.14     0.00        1     0.00     0.00  EGLManager::EGLManager()
+  0.00      0.14     0.00        1     0.00     0.00  EGLManager::~EGLManager()
+  0.00      0.14     0.00        1     0.00     0.00  OGLManager::compileProgram(unsigned int, unsigned int)
+  0.00      0.14     0.00        1     0.00   130.00  OGLManager::loadPNGTexture(char const*)
+  0.00      0.14     0.00        1     0.00     0.00  OGLManager::OGLManager(EGLManager*)
+  0.00      0.14     0.00        1     0.00     0.00  OGLManager::~OGLManager()
+  0.00      0.14     0.00        1     0.00     0.00  LodePNGState::LodePNGState()
+  0.00      0.14     0.00        1     0.00     0.00  LodePNGState::~LodePNGState()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 7.14% of 0.14 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.01    0.13                 main [1]
+                0.00    0.13       1/1           OGLManager::loadPNGTexture(char const*) [7]
+                0.00    0.00     607/607         OGLManager::getProgram() [29]
+                0.00    0.00     604/604         EGLManager::getScreenWidth() [31]
+                0.00    0.00     604/604         EGLManager::getScreenHeight() [32]
+                0.00    0.00     603/603         std::sin(float) [33]
+                0.00    0.00     603/604         EGLManager::swapBuffers() [30]
+                0.00    0.00       2/2           OGLManager::compileShader(unsigned int, char const*) [73]
+                0.00    0.00       1/1           EGLManager::EGLManager() [93]
+                0.00    0.00       1/1           EGLManager::initialize() [92]
+                0.00    0.00       1/1           OGLManager::OGLManager(EGLManager*) [96]
+                0.00    0.00       1/1           OGLManager::compileProgram(unsigned int, unsigned int) [95]
+                0.00    0.00       1/1           OGLManager::~OGLManager() [97]
+                0.00    0.00       1/1           EGLManager::~EGLManager() [94]
+-----------------------------------------------
+                0.00    0.13       1/1           lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [5]
+[2]     92.9    0.00    0.13       1         lodepng_decode(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [2]
+                0.00    0.13       1/1           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+                0.00    0.00       1/1           lodepng_color_mode_equal(LodePNGColorMode const*, LodePNGColorMode const*) [90]
+-----------------------------------------------
+                0.00    0.13       1/1           lodepng_decode32_file(unsigned char**, unsigned int*, unsigned int*, char const*) [4]
+[3]     92.9    0.00    0.13       1         lodepng_decode_file(unsigned char**, unsigned int*, unsigned int*, char const*, LodePNGColorType, unsigned int) [3]
+                0.00    0.13       1/1           lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [5]
+                0.00    0.00       1/1           lodepng_load_file(unsigned char**, unsigned int*, char const*) [75]
+                0.00    0.00       1/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.13       1/1           OGLManager::loadPNGTexture(char const*) [7]
+[4]     92.9    0.00    0.13       1         lodepng_decode32_file(unsigned char**, unsigned int*, unsigned int*, char const*) [4]
+                0.00    0.13       1/1           lodepng_decode_file(unsigned char**, unsigned int*, unsigned int*, char const*, LodePNGColorType, unsigned int) [3]
+-----------------------------------------------
+                0.00    0.13       1/1           lodepng_decode_file(unsigned char**, unsigned int*, unsigned int*, char const*, LodePNGColorType, unsigned int) [3]
+[5]     92.9    0.00    0.13       1         lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [5]
+                0.00    0.13       1/1           lodepng_decode(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [2]
+                0.00    0.00       1/1           LodePNGState::LodePNGState() [98]
+                0.00    0.00       1/1           lodepng_state_init(LodePNGState*) [76]
+                0.00    0.00       1/1           lodepng_state_cleanup(LodePNGState*) [77]
+                0.00    0.00       1/1           LodePNGState::~LodePNGState() [99]
+-----------------------------------------------
+                0.00    0.13       1/1           lodepng_decode(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [2]
+[6]     92.9    0.00    0.13       1         decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+                0.00    0.07       1/1           zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [9]
+                0.00    0.05       1/1           postProcessScanlines(unsigned char*, unsigned char*, unsigned int, unsigned int, LodePNGInfo const*) [11]
+                0.01    0.00       1/1           ucvector_resizev(ucvector*, unsigned int, unsigned char) [21]
+                0.00    0.00      33/33          lodepng_chunk_type_equals(unsigned char const*, char const*) [35]
+                0.00    0.00       5/10          lodepng_chunk_length(unsigned char const*) [39]
+                0.00    0.00       5/5           lodepng_chunk_data_const(unsigned char const*) [45]
+                0.00    0.00       4/4           lodepng_chunk_next_const(unsigned char const*) [52]
+                0.00    0.00       3/3           ucvector_init(ucvector*) [57]
+                0.00    0.00       2/5           ucvector_resize(ucvector*, unsigned int) [46]
+                0.00    0.00       2/2           lodepng_chunk_ancillary(unsigned char const*) [64]
+                0.00    0.00       2/2           lodepng_get_raw_size(unsigned int, unsigned int, LodePNGColorMode const*) [62]
+                0.00    0.00       2/2           ucvector_cleanup(void*) [67]
+                0.00    0.00       1/1           lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [74]
+                0.00    0.00       1/1           readChunk_pHYs(LodePNGInfo*, unsigned char const*, unsigned int) [84]
+                0.00    0.00       1/1           lodepng_chunk_check_crc(unsigned char const*) [78]
+-----------------------------------------------
+                0.00    0.13       1/1           main [1]
+[7]     92.9    0.00    0.13       1         OGLManager::loadPNGTexture(char const*) [7]
+                0.00    0.13       1/1           lodepng_decode32_file(unsigned char**, unsigned int*, unsigned int*, char const*) [4]
+-----------------------------------------------
+                0.00    0.07       1/1           zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [9]
+[8]     50.0    0.00    0.07       1         lodepng_zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [8]
+                0.00    0.05       1/1           inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [16]
+                0.00    0.02       1/1           adler32(unsigned char const*, unsigned int) [19]
+                0.00    0.00       1/15          lodepng_read32bitInt(unsigned char const*) [37]
+-----------------------------------------------
+                0.00    0.07       1/1           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[9]     50.0    0.00    0.07       1         zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [9]
+                0.00    0.07       1/1           lodepng_zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [8]
+-----------------------------------------------
+                0.04    0.01     256/256         unfilter(unsigned char*, unsigned char const*, unsigned int, unsigned int, unsigned int) [12]
+[10]    35.7    0.04    0.01     256         unfilterScanline(unsigned char*, unsigned char const*, unsigned char const*, unsigned int, unsigned char, unsigned int) [10]
+                0.01    0.00   87720/87720       paethPredictor(short, short, short) [20]
+-----------------------------------------------
+                0.00    0.05       1/1           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[11]    35.7    0.00    0.05       1         postProcessScanlines(unsigned char*, unsigned char*, unsigned int, unsigned int, LodePNGInfo const*) [11]
+                0.00    0.05       1/1           unfilter(unsigned char*, unsigned char const*, unsigned int, unsigned int, unsigned int) [12]
+                0.00    0.00       1/3           lodepng_get_bpp(LodePNGColorMode const*) [53]
+-----------------------------------------------
+                0.00    0.05       1/1           postProcessScanlines(unsigned char*, unsigned char*, unsigned int, unsigned int, LodePNGInfo const*) [11]
+[12]    35.7    0.00    0.05       1         unfilter(unsigned char*, unsigned char const*, unsigned int, unsigned int, unsigned int) [12]
+                0.04    0.01     256/256         unfilterScanline(unsigned char*, unsigned char const*, unsigned char const*, unsigned int, unsigned char, unsigned int) [10]
+-----------------------------------------------
+                0.03    0.02       2/2           lodepng_inflatev(ucvector*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [15]
+[13]    35.7    0.03    0.02       2         inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+                0.02    0.00   14668/14973       huffmanDecodeSymbol(unsigned char const*, unsigned int*, HuffmanTree const*, unsigned int) [17]
+                0.00    0.00       1/1           getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.00    0.00    8946/8967        readBitsFromStream(unsigned int*, unsigned char const*, unsigned int) [28]
+                0.00    0.00       4/5           HuffmanTree_init(HuffmanTree*) [47]
+                0.00    0.00       4/5           HuffmanTree_cleanup(HuffmanTree*) [48]
+                0.00    0.00       1/1           getTreeInflateFixed(HuffmanTree*, HuffmanTree*) [86]
+                0.00    0.00       1/5           ucvector_resize(ucvector*, unsigned int) [46]
+-----------------------------------------------
+                0.00    0.05       1/1           inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [16]
+[14]    35.7    0.00    0.05       1         lodepng_inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [14]
+                0.00    0.05       1/1           lodepng_inflatev(ucvector*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [15]
+                0.00    0.00       1/1           ucvector_init_buffer(ucvector*, unsigned char*, unsigned int) [88]
+-----------------------------------------------
+                0.00    0.05       1/1           lodepng_inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [14]
+[15]    35.7    0.00    0.05       1         lodepng_inflatev(ucvector*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [15]
+                0.03    0.02       2/2           inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+                0.00    0.00       6/6           readBitFromStream(unsigned int*, unsigned char const*) [44]
+                0.00    0.00       1/5           ucvector_resize(ucvector*, unsigned int) [46]
+-----------------------------------------------
+                0.00    0.05       1/1           lodepng_zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [8]
+[16]    35.7    0.00    0.05       1         inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [16]
+                0.00    0.05       1/1           lodepng_inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [14]
+-----------------------------------------------
+                0.00    0.00     305/14973       getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.02    0.00   14668/14973       inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+[17]    14.3    0.02    0.00   14973         huffmanDecodeSymbol(unsigned char const*, unsigned int*, HuffmanTree const*, unsigned int) [17]
+-----------------------------------------------
+                0.02    0.00       1/1           adler32(unsigned char const*, unsigned int) [19]
+[18]    14.3    0.02    0.00       1         update_adler32(unsigned int, unsigned char const*, unsigned int) [18]
+-----------------------------------------------
+                0.00    0.02       1/1           lodepng_zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [8]
+[19]    14.3    0.00    0.02       1         adler32(unsigned char const*, unsigned int) [19]
+                0.02    0.00       1/1           update_adler32(unsigned int, unsigned char const*, unsigned int) [18]
+-----------------------------------------------
+                0.01    0.00   87720/87720       unfilterScanline(unsigned char*, unsigned char const*, unsigned char const*, unsigned int, unsigned char, unsigned int) [10]
+[20]     7.1    0.01    0.00   87720         paethPredictor(short, short, short) [20]
+-----------------------------------------------
+                0.01    0.00       1/1           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[21]     7.1    0.01    0.00       1         ucvector_resizev(ucvector*, unsigned int, unsigned char) [21]
+                0.00    0.00       1/5           ucvector_resize(ucvector*, unsigned int) [46]
+-----------------------------------------------
+                0.00    0.00       1/1           inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+[22]     0.3    0.00    0.00       1         getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.00    0.00     305/14973       huffmanDecodeSymbol(unsigned char const*, unsigned int*, HuffmanTree const*, unsigned int) [17]
+                0.00    0.00      21/8967        readBitsFromStream(unsigned int*, unsigned char const*, unsigned int) [28]
+                0.00    0.00       3/21          mymalloc(unsigned int) [36]
+                0.00    0.00       3/5           HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int) [50]
+                0.00    0.00       3/51          myfree(void*) [34]
+                0.00    0.00       1/5           HuffmanTree_init(HuffmanTree*) [47]
+                0.00    0.00       1/5           HuffmanTree_cleanup(HuffmanTree*) [48]
+-----------------------------------------------
+                0.00    0.00      21/8967        getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.00    0.00    8946/8967        inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+[28]     0.0    0.00    0.00    8967         readBitsFromStream(unsigned int*, unsigned char const*, unsigned int) [28]
+-----------------------------------------------
+                0.00    0.00     607/607         main [1]
+[29]     0.0    0.00    0.00     607         OGLManager::getProgram() [29]
+-----------------------------------------------
+                0.00    0.00       1/604         OGLManager::~OGLManager() [97]
+                0.00    0.00     603/604         main [1]
+[30]     0.0    0.00    0.00     604         EGLManager::swapBuffers() [30]
+-----------------------------------------------
+                0.00    0.00     604/604         main [1]
+[31]     0.0    0.00    0.00     604         EGLManager::getScreenWidth() [31]
+-----------------------------------------------
+                0.00    0.00     604/604         main [1]
+[32]     0.0    0.00    0.00     604         EGLManager::getScreenHeight() [32]
+-----------------------------------------------
+                0.00    0.00     603/603         main [1]
+[33]     0.0    0.00    0.00     603         std::sin(float) [33]
+-----------------------------------------------
+                0.00    0.00       1/51          generateFixedLitLenTree(HuffmanTree*) [89]
+                0.00    0.00       1/51          generateFixedDistanceTree(HuffmanTree*) [91]
+                0.00    0.00       1/51          lodepng_decode_file(unsigned char**, unsigned int*, unsigned int*, char const*, LodePNGColorType, unsigned int) [3]
+                0.00    0.00       2/51          ucvector_cleanup(void*) [67]
+                0.00    0.00       3/51          getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.00    0.00       4/51          LodePNGText_cleanup(LodePNGInfo*) [69]
+                0.00    0.00       6/51          LodePNGUnknownChunks_cleanup(LodePNGInfo*) [72]
+                0.00    0.00       8/51          LodePNGIText_cleanup(LodePNGInfo*) [70]
+                0.00    0.00      10/51          uivector_cleanup(void*) [42]
+                0.00    0.00      15/51          HuffmanTree_cleanup(HuffmanTree*) [48]
+[34]     0.0    0.00    0.00      51         myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00      33/33          decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[35]     0.0    0.00    0.00      33         lodepng_chunk_type_equals(unsigned char const*, char const*) [35]
+-----------------------------------------------
+                0.00    0.00       1/21          lodepng_load_file(unsigned char**, unsigned int*, char const*) [75]
+                0.00    0.00       1/21          generateFixedLitLenTree(HuffmanTree*) [89]
+                0.00    0.00       1/21          generateFixedDistanceTree(HuffmanTree*) [91]
+                0.00    0.00       3/21          getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.00    0.00       5/21          HuffmanTree_make2DTree(HuffmanTree*) [49]
+                0.00    0.00       5/21          HuffmanTree_makeFromLengths2(HuffmanTree*) [51]
+                0.00    0.00       5/21          HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int) [50]
+[36]     0.0    0.00    0.00      21         mymalloc(unsigned int) [36]
+-----------------------------------------------
+                0.00    0.00       1/15          lodepng_zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [8]
+                0.00    0.00       1/15          lodepng_chunk_check_crc(unsigned char const*) [78]
+                0.00    0.00       3/15          lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [74]
+                0.00    0.00      10/15          lodepng_chunk_length(unsigned char const*) [39]
+[37]     0.0    0.00    0.00      15         lodepng_read32bitInt(unsigned char const*) [37]
+-----------------------------------------------
+                0.00    0.00       4/14          ucvector_resize(ucvector*, unsigned int) [46]
+                0.00    0.00      10/14          uivector_resize(uivector*, unsigned int) [41]
+[38]     0.0    0.00    0.00      14         myrealloc(void*, unsigned int) [38]
+-----------------------------------------------
+                0.00    0.00       1/10          lodepng_chunk_check_crc(unsigned char const*) [78]
+                0.00    0.00       4/10          lodepng_chunk_next_const(unsigned char const*) [52]
+                0.00    0.00       5/10          decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[39]     0.0    0.00    0.00      10         lodepng_chunk_length(unsigned char const*) [39]
+                0.00    0.00      10/15          lodepng_read32bitInt(unsigned char const*) [37]
+-----------------------------------------------
+                0.00    0.00      10/10          HuffmanTree_makeFromLengths2(HuffmanTree*) [51]
+[40]     0.0    0.00    0.00      10         uivector_init(uivector*) [40]
+-----------------------------------------------
+                0.00    0.00      10/10          uivector_resizev(uivector*, unsigned int, unsigned int) [43]
+[41]     0.0    0.00    0.00      10         uivector_resize(uivector*, unsigned int) [41]
+                0.00    0.00      10/14          myrealloc(void*, unsigned int) [38]
+-----------------------------------------------
+                0.00    0.00      10/10          HuffmanTree_makeFromLengths2(HuffmanTree*) [51]
+[42]     0.0    0.00    0.00      10         uivector_cleanup(void*) [42]
+                0.00    0.00      10/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00      10/10          HuffmanTree_makeFromLengths2(HuffmanTree*) [51]
+[43]     0.0    0.00    0.00      10         uivector_resizev(uivector*, unsigned int, unsigned int) [43]
+                0.00    0.00      10/10          uivector_resize(uivector*, unsigned int) [41]
+-----------------------------------------------
+                0.00    0.00       6/6           lodepng_inflatev(ucvector*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [15]
+[44]     0.0    0.00    0.00       6         readBitFromStream(unsigned int*, unsigned char const*) [44]
+-----------------------------------------------
+                0.00    0.00       5/5           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[45]     0.0    0.00    0.00       5         lodepng_chunk_data_const(unsigned char const*) [45]
+-----------------------------------------------
+                0.00    0.00       1/5           ucvector_resizev(ucvector*, unsigned int, unsigned char) [21]
+                0.00    0.00       1/5           inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+                0.00    0.00       1/5           lodepng_inflatev(ucvector*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [15]
+                0.00    0.00       2/5           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[46]     0.0    0.00    0.00       5         ucvector_resize(ucvector*, unsigned int) [46]
+                0.00    0.00       4/14          myrealloc(void*, unsigned int) [38]
+-----------------------------------------------
+                0.00    0.00       1/5           getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.00    0.00       4/5           inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+[47]     0.0    0.00    0.00       5         HuffmanTree_init(HuffmanTree*) [47]
+-----------------------------------------------
+                0.00    0.00       1/5           getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+                0.00    0.00       4/5           inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+[48]     0.0    0.00    0.00       5         HuffmanTree_cleanup(HuffmanTree*) [48]
+                0.00    0.00      15/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00       5/5           HuffmanTree_makeFromLengths2(HuffmanTree*) [51]
+[49]     0.0    0.00    0.00       5         HuffmanTree_make2DTree(HuffmanTree*) [49]
+                0.00    0.00       5/21          mymalloc(unsigned int) [36]
+-----------------------------------------------
+                0.00    0.00       1/5           generateFixedLitLenTree(HuffmanTree*) [89]
+                0.00    0.00       1/5           generateFixedDistanceTree(HuffmanTree*) [91]
+                0.00    0.00       3/5           getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) [22]
+[50]     0.0    0.00    0.00       5         HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int) [50]
+                0.00    0.00       5/21          mymalloc(unsigned int) [36]
+                0.00    0.00       5/5           HuffmanTree_makeFromLengths2(HuffmanTree*) [51]
+-----------------------------------------------
+                0.00    0.00       5/5           HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int) [50]
+[51]     0.0    0.00    0.00       5         HuffmanTree_makeFromLengths2(HuffmanTree*) [51]
+                0.00    0.00      10/10          uivector_init(uivector*) [40]
+                0.00    0.00      10/10          uivector_resizev(uivector*, unsigned int, unsigned int) [43]
+                0.00    0.00      10/10          uivector_cleanup(void*) [42]
+                0.00    0.00       5/21          mymalloc(unsigned int) [36]
+                0.00    0.00       5/5           HuffmanTree_make2DTree(HuffmanTree*) [49]
+-----------------------------------------------
+                0.00    0.00       4/4           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[52]     0.0    0.00    0.00       4         lodepng_chunk_next_const(unsigned char const*) [52]
+                0.00    0.00       4/10          lodepng_chunk_length(unsigned char const*) [39]
+-----------------------------------------------
+                0.00    0.00       1/3           postProcessScanlines(unsigned char*, unsigned char*, unsigned int, unsigned int, LodePNGInfo const*) [11]
+                0.00    0.00       2/3           lodepng_get_raw_size(unsigned int, unsigned int, LodePNGColorMode const*) [62]
+[53]     0.0    0.00    0.00       3         lodepng_get_bpp(LodePNGColorMode const*) [53]
+                0.00    0.00       3/3           lodepng_get_bpp_lct(LodePNGColorType, unsigned int) [59]
+-----------------------------------------------
+                0.00    0.00       3/3           lodepng_color_mode_cleanup(LodePNGColorMode*) [56]
+[54]     0.0    0.00    0.00       3         lodepng_palette_clear(LodePNGColorMode*) [54]
+-----------------------------------------------
+                0.00    0.00       1/3           lodepng_state_init(LodePNGState*) [76]
+                0.00    0.00       2/3           lodepng_info_init(LodePNGInfo*) [61]
+[55]     0.0    0.00    0.00       3         lodepng_color_mode_init(LodePNGColorMode*) [55]
+-----------------------------------------------
+                0.00    0.00       1/3           lodepng_state_cleanup(LodePNGState*) [77]
+                0.00    0.00       2/3           lodepng_info_cleanup(LodePNGInfo*) [63]
+[56]     0.0    0.00    0.00       3         lodepng_color_mode_cleanup(LodePNGColorMode*) [56]
+                0.00    0.00       3/3           lodepng_palette_clear(LodePNGColorMode*) [54]
+-----------------------------------------------
+                0.00    0.00       3/3           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[57]     0.0    0.00    0.00       3         ucvector_init(ucvector*) [57]
+-----------------------------------------------
+                0.00    0.00       3/3           lodepng_get_bpp_lct(LodePNGColorType, unsigned int) [59]
+[58]     0.0    0.00    0.00       3         getNumColorChannels(LodePNGColorType) [58]
+-----------------------------------------------
+                0.00    0.00       3/3           lodepng_get_bpp(LodePNGColorMode const*) [53]
+[59]     0.0    0.00    0.00       3         lodepng_get_bpp_lct(LodePNGColorType, unsigned int) [59]
+                0.00    0.00       3/3           getNumColorChannels(LodePNGColorType) [58]
+-----------------------------------------------
+                0.00    0.00       1/2           lodepng_chunk_check_crc(unsigned char const*) [78]
+                0.00    0.00       1/2           lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [74]
+[60]     0.0    0.00    0.00       2         lodepng_crc32(unsigned char const*, unsigned int) [60]
+                0.00    0.00       2/2           Crc32_update_crc(unsigned char const*, unsigned int, unsigned int) [65]
+-----------------------------------------------
+                0.00    0.00       1/2           lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [74]
+                0.00    0.00       1/2           lodepng_state_init(LodePNGState*) [76]
+[61]     0.0    0.00    0.00       2         lodepng_info_init(LodePNGInfo*) [61]
+                0.00    0.00       2/3           lodepng_color_mode_init(LodePNGColorMode*) [55]
+                0.00    0.00       2/2           LodePNGText_init(LodePNGInfo*) [66]
+                0.00    0.00       2/2           LodePNGIText_init(LodePNGInfo*) [68]
+                0.00    0.00       2/2           LodePNGUnknownChunks_init(LodePNGInfo*) [71]
+-----------------------------------------------
+                0.00    0.00       2/2           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[62]     0.0    0.00    0.00       2         lodepng_get_raw_size(unsigned int, unsigned int, LodePNGColorMode const*) [62]
+                0.00    0.00       2/3           lodepng_get_bpp(LodePNGColorMode const*) [53]
+-----------------------------------------------
+                0.00    0.00       1/2           lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [74]
+                0.00    0.00       1/2           lodepng_state_cleanup(LodePNGState*) [77]
+[63]     0.0    0.00    0.00       2         lodepng_info_cleanup(LodePNGInfo*) [63]
+                0.00    0.00       2/3           lodepng_color_mode_cleanup(LodePNGColorMode*) [56]
+                0.00    0.00       2/2           LodePNGText_cleanup(LodePNGInfo*) [69]
+                0.00    0.00       2/2           LodePNGIText_cleanup(LodePNGInfo*) [70]
+                0.00    0.00       2/2           LodePNGUnknownChunks_cleanup(LodePNGInfo*) [72]
+-----------------------------------------------
+                0.00    0.00       2/2           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[64]     0.0    0.00    0.00       2         lodepng_chunk_ancillary(unsigned char const*) [64]
+-----------------------------------------------
+                0.00    0.00       2/2           lodepng_crc32(unsigned char const*, unsigned int) [60]
+[65]     0.0    0.00    0.00       2         Crc32_update_crc(unsigned char const*, unsigned int, unsigned int) [65]
+                0.00    0.00       1/1           Crc32_make_crc_table() [87]
+-----------------------------------------------
+                0.00    0.00       2/2           lodepng_info_init(LodePNGInfo*) [61]
+[66]     0.0    0.00    0.00       2         LodePNGText_init(LodePNGInfo*) [66]
+-----------------------------------------------
+                0.00    0.00       2/2           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[67]     0.0    0.00    0.00       2         ucvector_cleanup(void*) [67]
+                0.00    0.00       2/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00       2/2           lodepng_info_init(LodePNGInfo*) [61]
+[68]     0.0    0.00    0.00       2         LodePNGIText_init(LodePNGInfo*) [68]
+-----------------------------------------------
+                0.00    0.00       2/2           lodepng_info_cleanup(LodePNGInfo*) [63]
+[69]     0.0    0.00    0.00       2         LodePNGText_cleanup(LodePNGInfo*) [69]
+                0.00    0.00       4/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00       2/2           lodepng_info_cleanup(LodePNGInfo*) [63]
+[70]     0.0    0.00    0.00       2         LodePNGIText_cleanup(LodePNGInfo*) [70]
+                0.00    0.00       8/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00       2/2           lodepng_info_init(LodePNGInfo*) [61]
+[71]     0.0    0.00    0.00       2         LodePNGUnknownChunks_init(LodePNGInfo*) [71]
+-----------------------------------------------
+                0.00    0.00       2/2           lodepng_info_cleanup(LodePNGInfo*) [63]
+[72]     0.0    0.00    0.00       2         LodePNGUnknownChunks_cleanup(LodePNGInfo*) [72]
+                0.00    0.00       6/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[73]     0.0    0.00    0.00       2         OGLManager::compileShader(unsigned int, char const*) [73]
+-----------------------------------------------
+                0.00    0.00       1/1           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[74]     0.0    0.00    0.00       1         lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [74]
+                0.00    0.00       3/15          lodepng_read32bitInt(unsigned char const*) [37]
+                0.00    0.00       1/2           lodepng_info_cleanup(LodePNGInfo*) [63]
+                0.00    0.00       1/2           lodepng_info_init(LodePNGInfo*) [61]
+                0.00    0.00       1/2           lodepng_crc32(unsigned char const*, unsigned int) [60]
+                0.00    0.00       1/1           checkColorValidity(LodePNGColorType, unsigned int) [85]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_decode_file(unsigned char**, unsigned int*, unsigned int*, char const*, LodePNGColorType, unsigned int) [3]
+[75]     0.0    0.00    0.00       1         lodepng_load_file(unsigned char**, unsigned int*, char const*) [75]
+                0.00    0.00       1/21          mymalloc(unsigned int) [36]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [5]
+[76]     0.0    0.00    0.00       1         lodepng_state_init(LodePNGState*) [76]
+                0.00    0.00       1/1           lodepng_decoder_settings_init(LodePNGDecoderSettings*) [79]
+                0.00    0.00       1/1           lodepng_encoder_settings_init(LodePNGEncoderSettings*) [80]
+                0.00    0.00       1/3           lodepng_color_mode_init(LodePNGColorMode*) [55]
+                0.00    0.00       1/2           lodepng_info_init(LodePNGInfo*) [61]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [5]
+[77]     0.0    0.00    0.00       1         lodepng_state_cleanup(LodePNGState*) [77]
+                0.00    0.00       1/3           lodepng_color_mode_cleanup(LodePNGColorMode*) [56]
+                0.00    0.00       1/2           lodepng_info_cleanup(LodePNGInfo*) [63]
+-----------------------------------------------
+                0.00    0.00       1/1           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[78]     0.0    0.00    0.00       1         lodepng_chunk_check_crc(unsigned char const*) [78]
+                0.00    0.00       1/10          lodepng_chunk_length(unsigned char const*) [39]
+                0.00    0.00       1/15          lodepng_read32bitInt(unsigned char const*) [37]
+                0.00    0.00       1/2           lodepng_crc32(unsigned char const*, unsigned int) [60]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_state_init(LodePNGState*) [76]
+[79]     0.0    0.00    0.00       1         lodepng_decoder_settings_init(LodePNGDecoderSettings*) [79]
+                0.00    0.00       1/1           lodepng_decompress_settings_init(LodePNGDecompressSettings*) [82]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_state_init(LodePNGState*) [76]
+[80]     0.0    0.00    0.00       1         lodepng_encoder_settings_init(LodePNGEncoderSettings*) [80]
+                0.00    0.00       1/1           lodepng_compress_settings_init(LodePNGCompressSettings*) [81]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_encoder_settings_init(LodePNGEncoderSettings*) [80]
+[81]     0.0    0.00    0.00       1         lodepng_compress_settings_init(LodePNGCompressSettings*) [81]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_decoder_settings_init(LodePNGDecoderSettings*) [79]
+[82]     0.0    0.00    0.00       1         lodepng_decompress_settings_init(LodePNGDecompressSettings*) [82]
+-----------------------------------------------
+                                   1             __static_initialization_and_destruction_0(int, int) [83]
+                0.00    0.00       1/1           __libc_csu_init [342]
+[83]     0.0    0.00    0.00       1+1       __static_initialization_and_destruction_0(int, int) [83]
+                                   1             __static_initialization_and_destruction_0(int, int) [83]
+-----------------------------------------------
+                0.00    0.00       1/1           decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [6]
+[84]     0.0    0.00    0.00       1         readChunk_pHYs(LodePNGInfo*, unsigned char const*, unsigned int) [84]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [74]
+[85]     0.0    0.00    0.00       1         checkColorValidity(LodePNGColorType, unsigned int) [85]
+-----------------------------------------------
+                0.00    0.00       1/1           inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) [13]
+[86]     0.0    0.00    0.00       1         getTreeInflateFixed(HuffmanTree*, HuffmanTree*) [86]
+                0.00    0.00       1/1           generateFixedLitLenTree(HuffmanTree*) [89]
+                0.00    0.00       1/1           generateFixedDistanceTree(HuffmanTree*) [91]
+-----------------------------------------------
+                0.00    0.00       1/1           Crc32_update_crc(unsigned char const*, unsigned int, unsigned int) [65]
+[87]     0.0    0.00    0.00       1         Crc32_make_crc_table() [87]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [14]
+[88]     0.0    0.00    0.00       1         ucvector_init_buffer(ucvector*, unsigned char*, unsigned int) [88]
+-----------------------------------------------
+                0.00    0.00       1/1           getTreeInflateFixed(HuffmanTree*, HuffmanTree*) [86]
+[89]     0.0    0.00    0.00       1         generateFixedLitLenTree(HuffmanTree*) [89]
+                0.00    0.00       1/21          mymalloc(unsigned int) [36]
+                0.00    0.00       1/5           HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int) [50]
+                0.00    0.00       1/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_decode(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [2]
+[90]     0.0    0.00    0.00       1         lodepng_color_mode_equal(LodePNGColorMode const*, LodePNGColorMode const*) [90]
+-----------------------------------------------
+                0.00    0.00       1/1           getTreeInflateFixed(HuffmanTree*, HuffmanTree*) [86]
+[91]     0.0    0.00    0.00       1         generateFixedDistanceTree(HuffmanTree*) [91]
+                0.00    0.00       1/21          mymalloc(unsigned int) [36]
+                0.00    0.00       1/5           HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int) [50]
+                0.00    0.00       1/51          myfree(void*) [34]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[92]     0.0    0.00    0.00       1         EGLManager::initialize() [92]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[93]     0.0    0.00    0.00       1         EGLManager::EGLManager() [93]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[94]     0.0    0.00    0.00       1         EGLManager::~EGLManager() [94]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[95]     0.0    0.00    0.00       1         OGLManager::compileProgram(unsigned int, unsigned int) [95]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[96]     0.0    0.00    0.00       1         OGLManager::OGLManager(EGLManager*) [96]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[97]     0.0    0.00    0.00       1         OGLManager::~OGLManager() [97]
+                0.00    0.00       1/604         EGLManager::swapBuffers() [30]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [5]
+[98]     0.0    0.00    0.00       1         LodePNGState::LodePNGState() [98]
+-----------------------------------------------
+                0.00    0.00       1/1           lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [5]
+[99]     0.0    0.00    0.00       1         LodePNGState::~LodePNGState() [99]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [60] lodepng_crc32(unsigned char const*, unsigned int) [40] uivector_init(uivector*) (lodepng.cc) [49] HuffmanTree_make2DTree(HuffmanTree*) (lodepng.cc)
+   [2] lodepng_decode(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [20] paethPredictor(short, short, short) (lodepng.cc) [89] generateFixedLitLenTree(HuffmanTree*) (lodepng.cc)
+  [53] lodepng_get_bpp(LodePNGColorMode const*) [84] readChunk_pHYs(LodePNGInfo*, unsigned char const*, unsigned int) (lodepng.cc) [90] lodepng_color_mode_equal(LodePNGColorMode const*, LodePNGColorMode const*) (lodepng.cc)
+  [14] lodepng_inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [18] update_adler32(unsigned int, unsigned char const*, unsigned int) (lodepng.cc) [71] LodePNGUnknownChunks_init(LodePNGInfo*) (lodepng.cc)
+  [74] lodepng_inspect(unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) [46] ucvector_resize(ucvector*, unsigned int) (lodepng.cc) [91] generateFixedDistanceTree(HuffmanTree*) (lodepng.cc)
+  [61] lodepng_info_init(LodePNGInfo*) [41] uivector_resize(uivector*, unsigned int) (lodepng.cc) [50] HuffmanTree_makeFromLengths(HuffmanTree*, unsigned int const*, unsigned int, unsigned int) (lodepng.cc)
+  [75] lodepng_load_file(unsigned char**, unsigned int*, char const*) [9] zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) (lodepng.cc) [51] HuffmanTree_makeFromLengths2(HuffmanTree*) (lodepng.cc)
+  [76] lodepng_state_init(LodePNGState*) [65] Crc32_update_crc(unsigned char const*, unsigned int, unsigned int) (lodepng.cc) [72] LodePNGUnknownChunks_cleanup(LodePNGInfo*) (lodepng.cc)
+   [3] lodepng_decode_file(unsigned char**, unsigned int*, unsigned int*, char const*, LodePNGColorType, unsigned int) [47] HuffmanTree_init(HuffmanTree*) (lodepng.cc) [34] myfree(void*) (lodepng.cc)
+  [39] lodepng_chunk_length(unsigned char const*) [66] LodePNGText_init(LodePNGInfo*) (lodepng.cc) [19] adler32(unsigned char const*, unsigned int) (lodepng.cc)
+  [62] lodepng_get_raw_size(unsigned int, unsigned int, LodePNGColorMode const*) [15] lodepng_inflatev(ucvector*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) (lodepng.cc) [16] inflate(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) (lodepng.cc)
+  [63] lodepng_info_cleanup(LodePNGInfo*) [67] ucvector_cleanup(void*) (lodepng.cc) [36] mymalloc(unsigned int) (lodepng.cc)
+  [37] lodepng_read32bitInt(unsigned char const*) [21] ucvector_resizev(ucvector*, unsigned int, unsigned char) (lodepng.cc) [12] unfilter(unsigned char*, unsigned char const*, unsigned int, unsigned int, unsigned int) (lodepng.cc)
+   [4] lodepng_decode32_file(unsigned char**, unsigned int*, unsigned int*, char const*) [42] uivector_cleanup(void*) (lodepng.cc) [38] myrealloc(void*, unsigned int) (lodepng.cc)
+   [5] lodepng_decode_memory(unsigned char**, unsigned int*, unsigned int*, unsigned char const*, unsigned int, LodePNGColorType, unsigned int) [43] uivector_resizev(uivector*, unsigned int, unsigned int) (lodepng.cc) [92] EGLManager::initialize()
+  [54] lodepng_palette_clear(LodePNGColorMode*) [10] unfilterScanline(unsigned char*, unsigned char const*, unsigned char const*, unsigned int, unsigned char, unsigned int) (lodepng.cc) [30] EGLManager::swapBuffers()
+  [77] lodepng_state_cleanup(LodePNGState*) [68] LodePNGIText_init(LodePNGInfo*) (lodepng.cc) [31] EGLManager::getScreenWidth()
+  [64] lodepng_chunk_ancillary(unsigned char const*) [44] readBitFromStream(unsigned int*, unsigned char const*) (lodepng.cc) [32] EGLManager::getScreenHeight()
+  [78] lodepng_chunk_check_crc(unsigned char const*) [85] checkColorValidity(LodePNGColorType, unsigned int) (lodepng.cc) [93] EGLManager::EGLManager()
+  [55] lodepng_color_mode_init(LodePNGColorMode*) [28] readBitsFromStream(unsigned int*, unsigned char const*, unsigned int) (lodepng.cc) [94] EGLManager::~EGLManager()
+   [8] lodepng_zlib_decompress(unsigned char**, unsigned int*, unsigned char const*, unsigned int, LodePNGDecompressSettings const*) [48] HuffmanTree_cleanup(HuffmanTree*) (lodepng.cc) [29] OGLManager::getProgram()
+  [45] lodepng_chunk_data_const(unsigned char const*) [69] LodePNGText_cleanup(LodePNGInfo*) (lodepng.cc) [73] OGLManager::compileShader(unsigned int, char const*)
+  [52] lodepng_chunk_next_const(unsigned char const*) [58] getNumColorChannels(LodePNGColorType) (lodepng.cc) [95] OGLManager::compileProgram(unsigned int, unsigned int)
+  [35] lodepng_chunk_type_equals(unsigned char const*, char const*) [86] getTreeInflateFixed(HuffmanTree*, HuffmanTree*) (lodepng.cc) [7] OGLManager::loadPNGTexture(char const*)
+  [56] lodepng_color_mode_cleanup(LodePNGColorMode*) [17] huffmanDecodeSymbol(unsigned char const*, unsigned int*, HuffmanTree const*, unsigned int) (lodepng.cc) [96] OGLManager::OGLManager(EGLManager*)
+  [79] lodepng_decoder_settings_init(LodePNGDecoderSettings*) [13] inflateHuffmanBlock(ucvector*, unsigned char const*, unsigned int*, unsigned int*, unsigned int, unsigned int) (lodepng.cc) [97] OGLManager::~OGLManager()
+  [80] lodepng_encoder_settings_init(LodePNGEncoderSettings*) [59] lodepng_get_bpp_lct(LodePNGColorType, unsigned int) (lodepng.cc) [98] LodePNGState::LodePNGState()
+  [81] lodepng_compress_settings_init(LodePNGCompressSettings*) [87] Crc32_make_crc_table() (lodepng.cc) [99] LodePNGState::~LodePNGState()
+  [82] lodepng_decompress_settings_init(LodePNGDecompressSettings*) [70] LodePNGIText_cleanup(LodePNGInfo*) (lodepng.cc) [33] std::sin(float)
+  [83] __static_initialization_and_destruction_0(int, int) (tiles.cc) [11] postProcessScanlines(unsigned char*, unsigned char*, unsigned int, unsigned int, LodePNGInfo const*) (lodepng.cc) [1] main
+   [6] decodeGeneric(unsigned char**, unsigned int*, unsigned int*, LodePNGState*, unsigned char const*, unsigned int) (lodepng.cc) [88] ucvector_init_buffer(ucvector*, unsigned char*, unsigned int) (lodepng.cc)
+  [57] ucvector_init(ucvector*) (lodepng.cc) [22] getTreeInflateDynamic(HuffmanTree*, HuffmanTree*, unsigned char const*, unsigned int*, unsigned int) (lodepng.cc)

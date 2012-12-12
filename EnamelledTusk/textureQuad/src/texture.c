@@ -30,6 +30,16 @@ typedef struct {
 	
 	// Shader programs
 	GLuint programObject;
+	
+	// Textures
+	GLuint texture;
+
+	// Attribute locations
+	GLint  positionLoc;
+	GLint  texCoordLoc;
+
+	// Sampler location
+	GLint samplerLoc;
 } STATE_STRUCT;
 
 // and create our state and a pointer to it
@@ -200,18 +210,19 @@ int initializeShaders(STATE_STRUCT *state) {
 	// create our shader sources inline here
 	char vertexShaderSrc[] =
 		"precision lowp float;\n"
-		"attribute vec4 aVertexPosition;\n"
-		"attribute vec4 aVertexColour;\n"
-		"varying vec4 vVertexColour;\n"
+		"attribute vec2 aVertexPosition;\n"
+		"attribute vec2 aTexturePosition;\n"
+		"varying vec2 vTexturePosition;\n"
 		"void main() {\n"
-		"	vVertexColour = aVertexColour;\n"
-		"	gl_Position = aVertexPosition;\n"
+		"	vTexturePosition = aTexturePosition;\n"
+		"	gl_Position = vec4(aVertexPosition, 0.0, 1.0);\n"
 		"}\n";
 	char fragmentShaderSrc[] =
 		"precision lowp float;\n"
-		"varying vec4 vVertexColour;\n"
+		"varying vec2 vTexturePosition;\n"
+		"uniform sampler2D sTexture;\n"
 		"void main() {\n"
-		"	gl_FragColor = vVertexColour;\n"
+		"	gl_FragColor = texture2D(sTexture, vTexturePosition);\n"
 		"}\n";
 		
 	// load our vertex and fragment shaders
@@ -227,10 +238,6 @@ int initializeShaders(STATE_STRUCT *state) {
 	// attach our two shaders to the program
 	glAttachShader(programObject, vertexShader);
 	glAttachShader(programObject, fragmentShader);
-	
-	// bind our vertex shader attributes
-	glBindAttribLocation(programObject, 0, "aVertexPosition");
-	glBindAttribLocation(programObject, 1, "aVertexColour");
 	
 	// link the program up
 	glLinkProgram(programObject);
@@ -266,18 +273,64 @@ int initializeShaders(STATE_STRUCT *state) {
 	// now store our program object
 	state->programObject = programObject;
 	
+	// get the attribute locations
+	state->positionLoc = glGetAttribLocation(state->programObject, "aVertexPosition");
+	state->texCoordLoc = glGetAttribLocation(state->programObject, "aTexturePosition");
+
+	// get the sampler location
+	state->samplerLoc = glGetUniformLocation(state->programObject, "uTexture");
+	
 	// and set our clear colour
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	return GL_TRUE;
+}
+
+// create a simple texture
+GLuint createSimpleTexture2D() {
+   // Texture object handle
+   GLuint textureId;
+   
+   // 2x2 Image, 3 bytes per pixel (R, G, B)
+   GLubyte pixels[4 * 3] = {  
+      255,   0,   0, // Red
+        0, 255,   0, // Green
+        0,   0, 255, // Blue
+      255, 255,   0  // Yellow
+   };
+
+   // Use tightly packed data
+   glPixelStorei (GL_UNPACK_ALIGNMENT, 1);
+
+   // Generate a texture object
+   glGenTextures (1, &textureId);
+
+   // Bind the texture object
+   glBindTexture (GL_TEXTURE_2D, textureId);
+
+   // Load the texture
+   glTexImage2D (GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+
+   // Set the filtering mode
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	
+	// set the wrap mode
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+   return textureId;
+
 }
 
 // our draw function!
 void draw(STATE_STRUCT *state) {
 	// load up our vertices
 	GLfloat vertices[] = {
-		0.0f, 1.0f, 0.0f,   1.0f, 0.0f, 0.0f, 1.0f,
-		-1.0f, -1.0f, 0.0f,   0.0f, 1.0f, 0.0f, 1.0f,
-		1.0f, -1.0f, 0.0f,   0.0f, 0.0f, 1.0f, 1.0f};
+	//	  x      y       s     t
+		-1.0f, -1.0f,   0.0f, 1.0f,
+		 1.0f, -1.0f,   1.0f, 1.0f,
+		-1.0f,  1.0f,   0.0f, 0.0f,
+		 1.0f,  1.0f,   1.0f, 0.0f};
 		
 	// set the viewport
 	glViewport(0, 0, state->screenWidth, state->screenHeight);
@@ -289,15 +342,20 @@ void draw(STATE_STRUCT *state) {
 	glUseProgram(state->programObject);
 	
 	// load the vertex data
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), vertices);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(float), vertices + 3);
+	glEnableVertexAttribArray(state->positionLoc);
+	glVertexAttribPointer(state->positionLoc, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), vertices);
+	glEnableVertexAttribArray(state->texCoordLoc);
+	glVertexAttribPointer(state->texCoordLoc, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), vertices + 2);
 	
-	// and enable our attribute arrays
-	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
+	// bind the texture
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, state->texture);
+
+	// set the sampler texture unit to 0
+	glUniform1i(state->samplerLoc, 0);
 	
 	// and draw with arrays!
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
 int main() {
@@ -313,9 +371,15 @@ int main() {
 	printf("Initializing EGL...");
 	initializeEGL(state);
 	printf(" done!\n");
+	printf("Initializing textures...");
+	state->texture = createSimpleTexture2D();
+	printf(" done!\n");
 	printf("Initializing shaders...");
 	initializeShaders(state);
 	printf(" done!\n");
+	
+	printf("--- Info ---\n");
+	printf("\tv pos ndx = %d\n\tt pos ndx = %d\n\tsamp ndx = %d\n", state->positionLoc, state->texCoordLoc, state->samplerLoc);
 	
 	// timing information
 	struct timeval t1, t2;
