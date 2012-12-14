@@ -5,11 +5,11 @@ INCLUDES=-I$(SDKSTAGE)/opt/vc/include/ -I$(SDKSTAGE)/opt/vc/include/interface/vc
 DEBUG=
 PROFILE=
 
-bin/tiles: o/tiles.o o/eglManager.o o/oglManager.o o/lodepng.o
-	$(CC) -o bin/tiles -Wl,--whole-archive $(DEBUG) $(PROFILE) $(LDFLAGS) -Wl,--no-whole-archive -rdynamic o/oglManager.o o/eglManager.o o/lodepng.o o/tiles.o
+bin/sprite: o/sprite.o o/eglManager.o o/oglManager.o o/lodepng.o
+	$(CC) -o bin/sprite -Wl,--whole-archive $(DEBUG) $(PROFILE) $(LDFLAGS) -Wl,--no-whole-archive -rdynamic o/oglManager.o o/eglManager.o o/lodepng.o o/sprite.o
 
-o/tiles.o: src/tiles.cc
-	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) $(PROFILE) -Wno-deprecated-declarations -c -o o/tiles.o src/tiles.cc
+o/sprite.o: src/sprite.cc
+	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) $(PROFILE) -Wno-deprecated-declarations -c -o o/sprite.o src/sprite.cc
 
 o/eglManager.o: src/eglManager.h src/eglManager.cc
 	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) $(PROFILE) -Wno-deprecated-declarations -c -o o/eglManager.o src/eglManager.cc
@@ -22,7 +22,7 @@ o/lodepng.o: src/lodepng.h src/lodepng.cc
 	
 .PHONY: run
 run:
-	./bin/tiles
+	./bin/sprite
 	
 .PHONY: clean
 clean:

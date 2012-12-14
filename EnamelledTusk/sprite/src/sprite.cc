@@ -172,6 +172,11 @@ int main() {
 		-1, -1, 0, 1};
 	cout << " done!" << endl;
 	
+	// load our sprite
+	cout << "Loading sprite...";
+	GLuint spriteTexture = oglManager.loadPNGTexture("resources/smallMario.png");
+	cout << " done!" << endl;
+	
 	// data for calculating timing / FPS
 	struct timeval t1, t2;
 	struct timezone tz;
@@ -200,7 +205,7 @@ int main() {
 		// between -1 and -3)
 		t += deltatime;
 		//viewMatrix[12] = sin(t/4.0f) - 2.0f;
-		viewMatrix[12] = sin(t) - 2.0f;
+		//viewMatrix[12] = sin(t) - 2.0f;
 		//viewMatrix[13] = cos(t) - 2.0f;
 			
 		// set the viewport
@@ -222,6 +227,9 @@ int main() {
 		offset += 2 * sizeof(GLfloat);
 		glVertexAttribPointer(texCoordLoc, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (const void*)offset);
 		
+		// set the view matrix (change camera location, etc)
+		glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, (const GLfloat*)&viewMatrix);
+		
 		// bind the texture
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture);
@@ -229,11 +237,18 @@ int main() {
 		// set the sampler texture unit to 0
 		glUniform1i(samplerLoc, 0);
 		
-		// set the view matrix (change camera location, etc)
-		glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, (const GLfloat*)&viewMatrix);
-		
 		// and draw with arrays!
 		glDrawArrays(GL_TRIANGLES, 0, numVertices);
+		
+		// bind the texture
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, spriteTexture);
+
+		// set the sampler texture unit to 0
+		glUniform1i(samplerLoc, 1);
+		
+		// and draw with arrays!
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
 		// swap our buffers
 		eglManager.swapBuffers();
